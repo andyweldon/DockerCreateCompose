@@ -1,0 +1,17 @@
+version: '3'
+services:
+  # my-app:
+  # image: ${docker-registry}/my-app:1.0
+  # ports:
+  # - 3000:3000
+  srm:
+    image: andyweldon/srm:1.2
+    volumes:
+      - bmsrm-data:/home/andy/logCollect/srm
+  bms:
+    image: andyweldon/bms:1.2
+    volumes:
+      - bmsrm-data:/home/andy/logCollect/bm
+volumes:
+  bmsrm-data:
+    driver: local
